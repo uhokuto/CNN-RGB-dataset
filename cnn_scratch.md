@@ -16,3 +16,9 @@ colab版　[cnn_augmentation_main.ipynb](./CNN_pytorch/cnn_augmentation_main.ipy
 
 3. colab版の実行
 上記メインプログラムをアップロードするとともに、[model.py](./CNN_pytorch/model.py)[augmentation_colab.py](./CNN_pytorch_fineTuning/augmentation_colab.py) [config.py](./CNN_pytorch_fineTuning/config.py) [np.py](./CNN_pytorch_fineTuning/np.py)の3つをサイドウィンドウにアップロードする
+
+
+# CNNスクラッチ学習：Datasetクラスを使わずにRGBをDataloaderにするプログラム
+上記と処理は同じだが、RGB画像をDatasetクラスを使わずにDataloaderにするコーディング。tensorへの変換など参考になる
+メインプログラム：[cnn_main2.py](./CNN_pytorch/cnn_main2.py)
+サブプログラム：[create_dataset.py](./CNN_pytorch/create_dataset.py) [model.py](./CNN_pytorch/model.py)

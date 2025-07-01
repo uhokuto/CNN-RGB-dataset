@@ -15,6 +15,19 @@ pytorchのtorch.utils.data.Datasetを継承、オーバーライドして、torc
 - 教師ラベル別フォルダの親フォルダをパスに指定すると、サブフォルダ名を教師ラベル、サブフォルダ中の画像をテンソル
 　とするデータセットを作成する。
 
+### 参考記事：
+--- 
+1. dataset, dataloader, compose, transformなど主なクラスの継承、オーバーライド方法
+https://hacks.deeplearning.jp/pytorch%E3%81%AEdataloader/
+https://pystyle.info/pytorch-how-to-create-custom-dataset-class/
+
+2. Pytorch torchvision dataset, dataloader解説
+https://konchangakita.hatenablog.com/entry/2020/05/21/220000
+
+---
+
+
+
 1. Datasetクラス
 class image_feature(Dataset):torch.utils.data.Datasetを継承したクラス。
 Datasetを継承したクラスでは　以下の__init__  __getitem__ いずれかにデータセット生成処理を記述すると、コンストラクタを生成すると同時にデータセットが生成される（改めてメソッドを呼び出す必要がない）。（インスタンスを生成しなくても、いきなり全データセットがtraindataに入ってくるのが特徴。）以下torch.utils.data.Datasetの骨格。
