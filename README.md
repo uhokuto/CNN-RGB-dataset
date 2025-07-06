@@ -5,3 +5,4 @@
 ## [3. pytorch版CNN vgg16 pretrained](cnn_vgg16_pretrained.md)
 ## [4. RGB画像からのpytorch tensor作成](./create_RGBtensor.md)
 ## [5. CNN代表的な特徴抽出バックボーン(pretrained model)](cnn_pretrained_model.md)
+## [6. 画像AIレクチャーノート](stanford.md)
