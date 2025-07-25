@@ -1,7 +1,26 @@
 # CNN vgg16 pretrained モデル
 ローカル版[cnn_augmentation_vgg16main.py](./CNN_pytorch_fineTuning/cnn_augmentation_vgg16main.py)
 colab版[cnn_augmentation_vgg16main.ipynb](./CNN_pytorch_fineTuning/cnn_augmentation_vgg16main.ipynb)
-学習済CNN(vgg16)をロードして、更新が必要なパラメータだけを取り出し、optimizerに渡すプログラム。また、出力レイヤの構成のみ変更する。ファインチューニングの方法も以下に記載した。これを応用すると、必要なレイヤのパラメータだけを更新したり、畳み込み層を含めたあらゆるレイヤを任意に上書きして構成変更することができる。
+学習済CNN(vgg16)をロードして、更新が必要なパラメータだけを取り出し、optimizerに渡すプログラム。また、出力レイヤの構成のみ変更する。ファインチューニングの方法も以下に記載した。これを応用すると、必要なレイヤのパラメータだけを更新したり、畳み込み層を含めたあらゆるレイヤを任意に上書きして構成変更することができる。vgg16のレイヤ構成を変更するコーディングは、[vgg16.py](./CNN_pytorch_fineTuning/vgg16.py)および[vgg16_augmentation.py](./CNN_pytorch_fineTuning/vgg16_augmentation.py)を参照。
+
+```python
+odel = models.vgg16(pretrained=True)
+#for param in model.parameters():　このコメントをはずすと、転移学習、コメントのままならファインチューニング
+#    param.requires_grad = False
+
+# 全結合層の変更(最終層の出力を2にする)
+model.classifier = nn.Sequential(
+    nn.Linear(512 * 7 * 7, 4096),
+    nn.ReLU(True),
+    nn.Dropout(),
+    nn.Linear(4096, 4096),
+    nn.ReLU(True),
+    nn.Dropout(),
+    nn.Linear(4096, 2),
+)
+```
+
+
 
 元ネタは
 https://venoda.hatenablog.com/entry/2020/10/14/071440#33-Dataset%E3%81%AE%E4%BD%9C%E6%88%90
